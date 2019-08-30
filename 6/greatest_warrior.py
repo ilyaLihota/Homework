@@ -1,4 +1,4 @@
-#!usr/bin/puthon3.5
+#!usr/bin/python3.5
 # -*- coding: utf-8 -*-
 """Greatest warrior."""
 
