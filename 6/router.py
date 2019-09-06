@@ -9,7 +9,8 @@ class Router:
     def add_path(self, path, method, func):
         self.path = path
         self.method = method
-        self.methods[self.method] = (self.path, func)
+        if method not in self.methods:
+            self.methods[self.method] = (self.path, func)
 
     def request(self, method, path):
         for key, value in self.methods.items():
@@ -56,6 +57,10 @@ if __name__ == "__main__":
     router.add_path("/me", "PUT", update_me)
     router.add_path("/me", "PATCH", update_me)
     router.add_path("/me", "DELETE", update_me)
+    router.add_path("/me", "GET", my_info)
+    router.add_path("/me", "OPTIONS", my_info)
+
+    # print(router.methods)
 
     print(router.get("/me"))
     print(router.post("/me"))
