@@ -53,6 +53,10 @@ class Vector:
                               self.components[0]*other.components[1] -
                               self.components[1]*other.components[0])
 
+    def __rmul__(self, other):
+        if isinstance(other, (int, float)):
+            return Vector([el*other for el in self.components])
+        
     @is_valid_type
     def __matmul__(self, other):
         return sum([key*value
@@ -68,3 +72,5 @@ if __name__ == "__main__":
     print(v1 - v2)
     print(v1 * v2)
     print(v1 @ v2)
+    print(v1 * 3)
+    print(3 * v1)
