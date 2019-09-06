@@ -19,9 +19,7 @@ class Warrior:
     ]
 
     def __init__(self):
-        self.level = 1
         self.experience = 100
-        self.rank = self.RANKS[0]
         self.achievements = []
 
     def increment_experience(self, experience):
@@ -29,14 +27,22 @@ class Warrior:
             self.experience += experience
         else:
             self.experience = 10000
-        self.increment_level()
-        self.increment_rank()
 
-    def increment_level(self):
-        self.level = self.experience // 100
+    @property
+    def level(self):
+        return self.experience // 100
 
-    def increment_rank(self):
-        self.rank = self.RANKS[self.experience // 1000]
+    @level.setter
+    def level(self, value):
+        self.experience = value * 100
+
+    @property
+    def rank(self):
+        return self.RANKS[self.experience // 1000]
+
+    @rank.setter
+    def rank(self, value):
+        self.experience = value * 1000
 
     def battle(self, enemy_level):
         if 1 <= self.level <= 100:
