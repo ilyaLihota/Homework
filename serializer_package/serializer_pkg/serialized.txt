@@ -1,0 +1,8 @@
+int(54);
+complex((3+5j));
+float(3.14);
+str(abc);
+tuple(int(1), int(2), int(3));
+list(int(1), int(2), int(3), list(int(4), int(5)));
+list(list(int(1), int(2)), str(b), int(3), tuple(int(5), int(7), str(c)));
+dict(int(1):str(a), int(2):str(b));
