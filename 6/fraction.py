@@ -37,12 +37,12 @@ class Fraction:
             self.denominator*other.numerator)
 
     def reduce_the_fraction(self):
-        for el in range(self.get_graitest(), 0, -1):
+        for el in range(self.get_greatest(), 0, -1):
             if self.numerator % el == 0 and self.denominator % el == 0:
                 self.numerator //= el
                 self.denominator //= el
 
-    def get_graitest(self):
+    def get_greatest(self):
         if self.numerator > self.denominator:
             return self.numerator
         return self.denominator
